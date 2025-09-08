@@ -92,15 +92,15 @@ Open any `.html` file in your browser:
 - **Denied**: ~25%
 - **Pended**: ~10%
 
-## 🏥 Centene Health Plans
+## 🏥 Health Plan Coverage
 
 The dataset includes realistic health plan names across all 50 states:
 
 **Sample States:**
-- **California**: Centene California Health Plan
-- **Texas**: Centene Texas Health Solutions
-- **Florida**: Centene Florida Health Partners
-- **New York**: Centene New York Health Network
+- **California**: California Health Plan
+- **Texas**: Texas Health Solutions
+- **Florida**: Florida Health Partners
+- **New York**: New York Health Network
 
 **Lines of Business:**
 - **Medicaid**: State-sponsored coverage
@@ -113,7 +113,7 @@ The dataset includes realistic health plan names across all 50 states:
 - **Date Range**: Custom start/end dates
 - **State Selection**: Single or multiple states
 - **Service Type**: Medical service categories
-- **Health Plan**: Specific Centene plans
+- **Health Plan**: Specific health plan names
 - **Line of Business**: Medicaid/Medicare/Marketplace
 - **Status**: Approved/Denied/Pended
 
@@ -203,5 +203,5 @@ For questions or issues:
 
 ---
 
-**Built for Centene Healthcare Prior Authorization Demonstrations**  
+**A demo of what I built for EDI at a Fortune 25 health tech company**  
 *Enterprise-scale synthetic data with interactive executive dashboards*
