@@ -39,7 +39,7 @@ Request Details:
 - place_of_service: Where service will be provided
 - state_code: US state code (2-letter)
 - state_name: Full state name
-- health_plan: Centene health plan name for the state
+- health_plan: Fortune 25 healthtech plan name for the state
 - line_of_business: Medicaid, Medicare, or Marketplace
 - age_band: Patient age group
 

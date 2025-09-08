@@ -27,8 +27,8 @@ END_DATE = datetime(2024, 12, 31)
 RANDOM_SEED = 42
 BATCH_SIZE = 1000000  # 1M records per batch for efficiency
 
-# Centene operating states (same as main script)
-CENTENE_STATES = {
+# Fortune 25 healthtech operating states (same as main script)
+FORTUNE25_HEALTHTECH_STATES = {
     'AL': {'name': 'Alabama', 'plans': ['Ambetter from Alabama', 'Peach State Health Plan'], 'lob': ['Medicaid', 'Marketplace']},
     'AK': {'name': 'Alaska', 'plans': ['Alaska Total Care'], 'lob': ['Medicaid']},
     'AZ': {'name': 'Arizona', 'plans': ['Ambetter from Arizona', 'Arizona Complete Health'], 'lob': ['Medicaid', 'Marketplace']},
@@ -151,7 +151,7 @@ def generate_enterprise_data():
     }
     
     # State distribution
-    state_codes = list(CENTENE_STATES.keys())
+    state_codes = list(FORTUNE25_HEALTHTECH_STATES.keys())
     state_weights = [0.05] * len(state_codes)
     large_states = ['CA', 'TX', 'FL', 'NY', 'PA', 'IL', 'OH', 'GA', 'NC', 'MI']
     for state in large_states:
@@ -190,7 +190,7 @@ def generate_enterprise_data():
             
             # Generate state and health plan
             state_code = np.random.choice(state_codes, p=state_weights)
-            state_info = CENTENE_STATES[state_code]
+            state_info = FORTUNE25_HEALTHTECH_STATES[state_code]
             health_plan = random.choice(state_info['plans'])
             line_of_business = random.choice(state_info['lob'])
             

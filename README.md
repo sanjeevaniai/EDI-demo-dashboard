@@ -6,7 +6,7 @@ A comprehensive healthcare prior-authorization (EDI-278) synthetic data generato
 
 ### **Enterprise-Scale Data Generation**
 - **50+ Million Records**: Scalable synthetic dataset generation
-- **All 50 US States**: Complete Centene health plan coverage
+- **All 50 US States**: Complete Fortune 25 healthtech plan coverage
 - **Realistic Business Logic**: SLA compliance, TAT calculations, status resolution
 - **Privacy-Safe**: Fully synthetic data with masked identifiers
 
@@ -62,7 +62,7 @@ Open any `.html` file in your browser:
 | `provider_npi` | String | Masked provider NPI |
 | `state_code` | String | 2-letter state code |
 | `state_name` | String | Full state name |
-| `health_plan` | String | Centene health plan name |
+| `health_plan` | String | Fortune 25 healthtech plan name |
 | `line_of_business` | String | Medicaid/Medicare/Marketplace |
 | `service_type` | String | Medical service category |
 | `request_timestamp` | DateTime | Request submission time |

@@ -39,14 +39,14 @@ from plotly.subplots import make_subplots
 import plotly.express as px
 
 # Configuration - Enterprise Scale
-N_ROWS = 50000000  # 50 million records for realistic Centene scale
+N_ROWS = 50000000  # 50 million records for realistic Fortune 25 healthtech scale
 START_DATE = datetime(2023, 1, 1)  # Extended time range for time series
 END_DATE = datetime(2024, 12, 31)
 RANDOM_SEED = 42
 BATCH_SIZE = 100000  # Process in batches for memory efficiency
 
-# Centene operating states with health plan names and lines of business
-CENTENE_STATES = {
+# Fortune 25 healthtech operating states with health plan names and lines of business
+FORTUNE25_HEALTHTECH_STATES = {
     'AL': {'name': 'Alabama', 'plans': ['Ambetter from Alabama', 'Peach State Health Plan'], 'lob': ['Medicaid', 'Marketplace']},
     'AK': {'name': 'Alaska', 'plans': ['Alaska Total Care'], 'lob': ['Medicaid']},
     'AZ': {'name': 'Arizona', 'plans': ['Ambetter from Arizona', 'Arizona Complete Health'], 'lob': ['Medicaid', 'Marketplace']},
@@ -179,7 +179,7 @@ def generate_synthetic_data_batch(batch_size, start_idx, end_idx):
     }
     
     # State distribution - weighted towards larger states
-    state_codes = list(CENTENE_STATES.keys())
+    state_codes = list(FORTUNE25_HEALTHTECH_STATES.keys())
     state_weights = [0.05] * len(state_codes)  # Base weight
     # Increase weights for larger states
     large_states = ['CA', 'TX', 'FL', 'NY', 'PA', 'IL', 'OH', 'GA', 'NC', 'MI']
@@ -242,7 +242,7 @@ def generate_synthetic_data_batch(batch_size, start_idx, end_idx):
         
         # Generate state and associated health plan/LOB
         state_code = np.random.choice(state_codes, p=state_weights)
-        state_info = CENTENE_STATES[state_code]
+        state_info = FORTUNE25_HEALTHTECH_STATES[state_code]
         health_plan = random.choice(state_info['plans'])
         line_of_business = random.choice(state_info['lob'])
         
@@ -910,7 +910,7 @@ Request Details:
 - place_of_service: Where service will be provided
 - state_code: US state code (2-letter)
 - state_name: Full state name
-- health_plan: Centene health plan name for the state
+- health_plan: Fortune 25 healthtech plan name for the state
 - line_of_business: Medicaid, Medicare, or Marketplace
 - age_band: Patient age group
 
@@ -1010,7 +1010,7 @@ def create_docx_document(df):
         'This document outlines the comprehensive methodology used to generate a fully synthetic '
         'EDI-278 prior authorization dataset for demonstrating technical expertise in healthcare '
         'data engineering. The dataset contains 600 records spanning all 50 US states where '
-        'Centene Corporation operates, with realistic distributions and business logic that '
+        'Fortune 25 healthtech company operates, with realistic distributions and business logic that '
         'mirrors actual healthcare prior authorization processes.'
     )
     
@@ -1055,7 +1055,7 @@ def create_docx_document(df):
             'place_of_service: Where service will be provided',
             'state_code: US state code (2-letter)',
             'state_name: Full state name',
-            'health_plan: Centene health plan name for the state',
+            'health_plan: Fortune 25 healthtech plan name for the state',
             'line_of_business: Medicaid, Medicare, or Marketplace',
             'age_band: Patient age group'
         ]),
@@ -1115,14 +1115,14 @@ def create_docx_document(df):
     doc.add_heading('3. Geographic Distribution Strategy', level=2)
     
     doc.add_paragraph(
-        'The dataset includes all 50 US states where Centene Corporation operates, with '
+        'The dataset includes all 50 US states where Fortune 25 healthtech company operates, with '
         'realistic health plan names and lines of business:'
     )
     
     doc.add_paragraph(
         'State selection is weighted towards larger population states (CA, TX, FL, NY, PA, IL, OH, GA, NC, MI) '
         'with 8% probability, while smaller states receive 5% probability. Each state is associated '
-        'with authentic Centene health plan names and appropriate lines of business (Medicaid, Medicare, Marketplace).'
+        'with authentic Fortune 25 healthtech plan names and appropriate lines of business (Medicaid, Medicare, Marketplace).'
     )
     
     # Data Quality Assurance
